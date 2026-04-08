@@ -1,0 +1,127 @@
+/* ==========================================================================
+   AI Audio Feed – Content Styles
+   Injected into twitter.com / x.com
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Listen button
+   -------------------------------------------------------------------------- */
+.aaf-listen-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+
+  /* Default (light-mode-friendly) */
+  background: rgba(0, 0, 0, 0.06);
+  color: #555;
+}
+
+/* Dark mode (Twitter's dark theme applies [data-theme] on <html>) */
+html[data-theme="dark"] .aaf-listen-btn,
+.dark .aaf-listen-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #aaa;
+}
+
+.aaf-listen-btn:hover {
+  background: rgba(29, 155, 240, 0.12);
+  color: #1d9bf0;
+  transform: scale(1.03);
+}
+
+.aaf-listen-btn:active {
+  transform: scale(0.97);
+}
+
+/* --------------------------------------------------------------------------
+   State: playing
+   -------------------------------------------------------------------------- */
+.aaf-listen-btn[data-state="playing"] {
+  background: rgba(29, 155, 240, 0.15);
+  color: #1d9bf0;
+}
+
+.aaf-listen-btn[data-state="playing"] .aaf-icon {
+  animation: aaf-pulse 1.2s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   State: loading / fetching audio
+   -------------------------------------------------------------------------- */
+.aaf-listen-btn[data-state="loading"] {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
+}
+
+.aaf-listen-btn[data-state="loading"] .aaf-icon {
+  animation: aaf-spin 0.9s linear infinite;
+}
+
+/* --------------------------------------------------------------------------
+   State: error
+   -------------------------------------------------------------------------- */
+.aaf-listen-btn[data-state="error"] {
+  background: rgba(244, 63, 94, 0.12);
+  color: #f43f5e;
+}
+
+/* --------------------------------------------------------------------------
+   Icons / label
+   -------------------------------------------------------------------------- */
+.aaf-icon {
+  font-size: 14px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.aaf-label {
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes
+   -------------------------------------------------------------------------- */
+@keyframes aaf-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.25); }
+}
+
+@keyframes aaf-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Tooltip (shown on hover via data-tooltip attribute)
+   -------------------------------------------------------------------------- */
+.aaf-listen-btn[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.aaf-listen-btn {
+  position: relative;  /* needed for tooltip pseudo-element */
+}

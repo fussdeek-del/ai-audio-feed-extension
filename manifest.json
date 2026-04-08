@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "AI Audio Feed",
+  "version": "1.0.0",
+  "description": "Convert social media posts into audio using browser TTS or ElevenLabs.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://twitter.com/*",
+    "https://x.com/*",
+    "https://api.elevenlabs.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://twitter.com/*",
+        "https://x.com/*"
+      ],
+      "js": [
+        "utils/processor.js",
+        "tts/speech.js",
+        "tts/elevenLabs.js",
+        "ui/button.js",
+        "content.js"
+      ],
+      "css": [
+        "assets/css/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "ui/settings.html",
+    "default_title": "AI Audio Feed Settings",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
+}
