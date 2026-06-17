@@ -8,7 +8,7 @@ Free and open source. No subscriptions. Just plug in your ElevenLabs API key and
 
 ## Why
 
-Long-form posts on X are painful to read. This extension converts them to audio using ElevenLabs voices — so you can listen while doing other stuff.
+Long-form posts on X are painful to read. This extension converts them to audio using ElevenLabs voices so you can listen while doing other stuff.
 
 ---
 
@@ -25,7 +25,7 @@ Long-form posts on X are painful to read. This extension converts them to audio 
 
 - Reads X posts aloud using ElevenLabs TTS
 - Works with any ElevenLabs voice
-- Free to use — you only pay ElevenLabs if you exceed their free tier
+- Free to use, you only pay ElevenLabs if you exceed their free tier
 - Lightweight, no backend
 
 ---
