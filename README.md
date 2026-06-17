@@ -1,6 +1,6 @@
-# ai-audio-feed-extension 🔊
+# Audio-feed-extension 🔊
 
-A browser extension that reads your X (Twitter) feed out loud using ElevenLabs — turn your timeline into a podcast.
+A browser extension that reads your X (Twitter) feed out loud using ElevenLabs turn your timeline into a podcast.
 
 Free and open source. No subscriptions. Just plug in your ElevenLabs API key and go.
 
